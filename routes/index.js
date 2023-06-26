@@ -15,13 +15,16 @@ router.get('/', async (req, res, next)=> {
 
   const options = {
     headers: {
-      Authorizaton : `token${token}`,
+      Authorization : `token${token}`,
     }
   }
   try{
-    const userData = await fetch(`$${ROOT_URL}/users/${username}`, options)
+    const userData = await fetch(`${ROOT_URL}/users/${username}`, options)
     .then(res=>res.json())
-    res.render('index', { title: 'Express' });
+
+    userData.repos = await fetch(userData.repos_url, options)
+    .then(res=>res.json())
+    res.render('index', {userData});
   }catch(err){
     console.log(err)
   }
