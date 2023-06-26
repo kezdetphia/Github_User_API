@@ -1,7 +1,5 @@
 GitHub User Viewer
 
-GitHub User Viewer
-
 This project is a GitHub User Viewer that allows you to search for a GitHub username and retrieve information about the user's name and their projects. It is built using EJS, JavaScript, Node.js, Express, and Bootstrap.
 Features
 
